@@ -1,6 +1,7 @@
 # predeploy.sh
 
 # remove the version hash from our base javascript file for a stable URL
-find build/static/js -name "main.*.js" -exec mv '{}' build/static/js/main.js \;
+find build -type f -name "*.html" -exec sed -i 's/main\.[^.]*\.js/main.js/g' {} +
 
+echo "hello world"
 # https://www.bitovi.com/blog/how-to-create-a-web-component-with-create-react-app
