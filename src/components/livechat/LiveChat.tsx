@@ -100,7 +100,7 @@ export default function LiveChat(props: Props) {
             width: "100%",
           }}
         >
-          <Typography variant="subtitle1">VUBA VUBA</Typography>
+          <Typography variant="subtitle1" fontFamily="Poppins">VUBA VUBA</Typography>
           <Button onClick={handleCloseChat} size="small">
             <CloseIcon sx={{color:'white'}}/>
           </Button>
@@ -141,7 +141,7 @@ export default function LiveChat(props: Props) {
                     alignSelf: msg.sent ? "flex-end" : "flex-start",
                   }}
                 >
-                  <Typography variant="body1">{msg.text}</Typography>
+                  <Typography variant="body1" fontFamily="Poppins">{msg.text}</Typography>
                 </Box>
                 
               </Box>
@@ -154,7 +154,7 @@ export default function LiveChat(props: Props) {
                   textTransform: "none",
                   borderRadius: "20px 20px 20px 20px",
                   width: "100%",}}>
-                  <Typography>Ask a Question</Typography>
+                  <Typography fontFamily="Poppins">Ask a Question</Typography>
                 </Button>
               </Grid>
               <Grid item xs={6}>
@@ -162,7 +162,7 @@ export default function LiveChat(props: Props) {
                   textTransform: "none",
                   borderRadius: "20px 20px 20px 20px",
                   width: "100%",}}>
-                  <Typography>Connect to sales</Typography>
+                  <Typography fontFamily="Poppins">Connect to sales</Typography>
                 </Button>
               </Grid>
               <Grid item xs={6}>
@@ -170,7 +170,7 @@ export default function LiveChat(props: Props) {
                   textTransform: "none",
                   borderRadius: "20px 20px 20px 20px",
                   width: "100%",}}>
-                <Typography>Report an Abuse</Typography>
+                <Typography fontFamily="Poppins">Report an Abuse</Typography>
                 </Button>
               </Grid>
               <Grid item xs={6}>
@@ -178,7 +178,7 @@ export default function LiveChat(props: Props) {
                   textTransform: "none",
                   borderRadius: "20px 20px 20px 20px",
                   width: "100%",}}>
-                <Typography>Learn about bot</Typography>
+                <Typography fontFamily="Poppins">Learn about bot</Typography>
                 </Button>
               </Grid>
             </Grid>
