@@ -34,6 +34,9 @@ export default function LiveChat(props: Props) {
   };
 
   const handleSendMessage = () => {
+    const token = props.configs?.[0]?.token ?? '';
+
+    console.log("handle messages",token)
     setMessages([...messages, { text: message, sent: true }]);
     setMessage("");
     setShowButtons(false);
@@ -100,7 +103,7 @@ export default function LiveChat(props: Props) {
             width: "100%",
           }}
         >
-          <Typography variant="subtitle1" fontFamily="Poppins">VUBA VUBA</Typography>
+          <Typography variant="subtitle1" fontFamily="Poppins">flipper bot</Typography>
           <Button onClick={handleCloseChat} size="small">
             <CloseIcon sx={{color:'white'}}/>
           </Button>
