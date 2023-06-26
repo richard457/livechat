@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Box, Button, TextField, Fab, Typography, Grid } from "@mui/material";
-import { ChecklistItemType } from "../../types/checklistItem";
+import { Config } from "../../types/Config";
 import ForumRoundedIcon from '@mui/icons-material/ForumRounded';
 import CloseIcon from "@mui/icons-material/Close";
 import AddRounded from "@mui/icons-material/AddRounded"
 
 type Props = {
-  items?: ChecklistItemType[];
+  configs?: Config[];
 };
 
 type Message = {

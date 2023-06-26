@@ -1,23 +1,22 @@
 import { Box, Checkbox, FormControlLabel } from "@mui/material";
-import { ChecklistItemType } from "../../types/checklistItem";
+import { Config } from "../../types/Config";
 
 export default function ChecklistItem({
   item,
   onChange
 }: {
-  item: ChecklistItemType;
-  onChange: (item: ChecklistItemType) => void;
+  item: Config;
+  onChange: (item: Config) => void;
 }): JSX.Element {
   return (
     <Box display="flex" gap="1rem" >
       <FormControlLabel
         sx={{ '& .MuiFormControlLabel-label': { fontSize: '30px' } }}
-        label={item.label}
+        label={item.name}
         control={
           <Checkbox
             sx={{ '& .MuiSvgIcon-root': { fontSize: 50 } }}
-            checked={item.isChecked}
-            onChange={() => onChange({ ...item, isChecked: !item.isChecked })}
+            checked={item.name!=""}
           />
         }
       />

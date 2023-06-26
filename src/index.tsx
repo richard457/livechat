@@ -2,43 +2,43 @@ import React, { Requireable } from 'react';
 import * as ReactDOM from 'react-dom/client';
 import PropTypes from 'prop-types';
 import reactToWebComponent from 'react-to-webcomponent';
-import { isChecklistItemType } from './types/checklistItem';
+import { isChecklistItemType } from './types/Config';
 import LiveChat from './components/livechat/LiveChat';
 
-class WebComponentWrapper extends React.Component<{ items: string }, {}> {
+class WebComponentWrapper extends React.Component<{ configs: string }, {}> {
   static propTypes: {
-    items: Requireable<string>;
+    configs: Requireable<string>;
   };
 
   render() {
-    let items;
+    let configs;
     try {
-      items = this.props.items ? JSON.parse(this.props.items) : undefined;
-      if (!Array.isArray(items)) {
-        items = undefined;
-      } else if (items.length === 0) {
-        items = undefined;
-      } else if (items?.some(item => !isChecklistItemType(item))) {
-        items = undefined;
+      configs = this.props.configs ? JSON.parse(this.props.configs) : undefined;
+      if (!Array.isArray(configs)) {
+        configs = undefined;
+      } else if (configs.length === 0) {
+        configs = undefined;
+      } else if (configs?.some(item => !isChecklistItemType(item))) {
+        configs = undefined;
       }
     } catch {
-      items = undefined
+      configs = undefined
     }
 
-    return <LiveChat items={items} />;
+    return <LiveChat configs={configs} />;
   }
 }
 
 WebComponentWrapper.propTypes = {
-  items: PropTypes.string,
+  configs: PropTypes.string,
 }
 
-const wcChecklist = reactToWebComponent(WebComponentWrapper, React, ReactDOM, { dashStyleAttributes: true });
+const flipperLiveChat = reactToWebComponent(WebComponentWrapper, React, ReactDOM, { dashStyleAttributes: true });
 const wcChecklistShadow = reactToWebComponent(WebComponentWrapper, React, ReactDOM, { dashStyleAttributes: true, shadow: true });
 
-customElements.define("flipper-livechat", wcChecklist);
+customElements.define("flipper-livechat", flipperLiveChat);
 customElements.define("flipper-livechat-shadow", wcChecklistShadow);
 
 // How to use:
 // <script defer="defer" src="https://rjspencer.github.io/flipper-livechat/static/js/main.js"></script> 
-// <flipper-livechat items='[{"label":"First Thing","isChecked":false}]' />
+// <flipper-livechat configs='[{"label":"First Thing","isChecked":false}]' />
