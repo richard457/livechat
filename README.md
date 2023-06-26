@@ -7,3 +7,5 @@
 
 - run: npm install in root folder
 - run: npm run start
+- Ref:
+  https://www.bitovi.com/blog/how-to-create-a-web-component-with-create-react-app
