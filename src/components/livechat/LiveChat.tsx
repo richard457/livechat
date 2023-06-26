@@ -33,14 +33,44 @@ export default function LiveChat(props: Props) {
     }
   };
 
-  const handleSendMessage = () => {
+  const handleSendMessage = async () => {
     const token = props.configs?.[0]?.token ?? '';
-
-    console.log("handle messages",token)
-    setMessages([...messages, { text: message, sent: true }]);
-    setMessage("");
-    setShowButtons(false);
+    const url = 'https://ya43fuixdi.execute-api.us-east-1.amazonaws.com/dev/newMessage'; // Replace with your desired URL
+  
+    const payload = {
+      toNumber: '+250783054874',
+      text: 'Good night!',
+      type: 'text',
+      phoneNumberId: '101514826127381',
+      channel: 'bot',
+      fromNumber: 'RandomString',
+    };
+  
+    try {
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(payload),
+      });
+  
+      if (!response.ok) {
+        throw new Error('Failed to send the message.');
+      }
+  
+      // TODO: handle success response
+  
+      setMessages([...messages, { text: message, sent: true }]);
+      setMessage('');
+      setShowButtons(false);
+    } catch (error) {
+      console.error('Failed to send the message:', error);
+      // TODO: handle error
+    }
   };
+  
 
   const handleToggleChat = () => {
     setIsOpen(!isOpen);
