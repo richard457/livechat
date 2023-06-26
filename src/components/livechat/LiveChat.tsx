@@ -8,7 +8,7 @@ import AddRounded from "@mui/icons-material/AddRounded"
 type Props = {
   configs?: Config[];
 };
-
+// 
 type Message = {
   text: string;
   sent: boolean;
